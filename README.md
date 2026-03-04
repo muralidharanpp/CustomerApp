@@ -70,8 +70,9 @@ Technologies Used:
 # 🖥 Application Features
 
 ---
-
-## 1️⃣ Check the screenshot under Videos & Screenshotsn
+=========================================================
+##  Check the screenshot under Videos & Screenshots
+=======================================================
 
 ## 1️⃣ Customer Entry Screen
 
