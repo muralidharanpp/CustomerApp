@@ -1,221 +1,274 @@
-🚀 CustomerApp – Clean Architecture (Angular + .NET Core)
-📌 Project Overview
+# 🚀 CustomerApp
 
-CustomerApp is a full-stack enterprise-ready application built using:
+Enterprise-level Customer Management Application built using:
 
-🎯 Frontend: Angular (Clean Architecture)
+- 🟢 Angular (Clean Architecture – Frontend)
+- 🔵 ASP.NET Core Web API (.NET Core)
+- 🧠 Clean Architecture
+- ⚡ CQRS Pattern
+- 🗂 Repository Pattern
+- 🧾 Soft Delete Implementation
 
-⚙ Backend: ASP.NET Core Web API
+---
 
-🧠 Patterns Used:
+# 📌 Project Overview
 
-Clean Architecture
+CustomerApp is a full-stack application that allows users to:
 
-CQRS Pattern
+- Create Customers
+- Add multiple detail lines (Hardware / Software)
+- Auto-generate category-based codes (HW / SW)
+- Delete detail rows
+- Soft delete customers
+- Filter customers by category
+- Print customer details
 
-Repository Pattern
+This project follows enterprise architectural standards and best practices.
 
-Soft Delete
+---
 
-SOLID Principles
+# 🏗 Architecture
 
-The application allows users to:
+## 🔵 Backend (ASP.NET Core)
 
-Create Customers
+Clean Architecture Layers:
 
-Add multiple Customer Details (Hardware / Software)
+- Domain
+- Application (CQRS – Commands & Queries)
+- Infrastructure
+- API
 
-Delete Detail rows
+Patterns Used:
 
-Soft delete Customers
+- CQRS Pattern
+- Repository Pattern
+- Dependency Injection
+- Soft Delete Strategy
+- Swagger Documentation
 
-Filter by Category
+---
 
-Print Customer Details
+## 🟢 Frontend (Angular)
 
-🏗 Architecture Overview
-Backend Architecture
+Structured using Clean Architecture principles:
 
-Built using Clean Architecture with the following layers:
+- Core
+- Domain
+- Infrastructure
+- Presentation
+- Facade Pattern
 
-Domain
+Technologies Used:
 
-Application (CQRS)
+- Angular Reactive Forms
+- AG Grid (Dynamic Grid)
+- Service Layer Abstraction
+- Signal-based State Handling
 
-Infrastructure
+---
 
-API
+# 🖥 Application Features
 
-Implements:
+---
 
-Command & Query Separation
+## 1️⃣ Customer Entry Screen
 
-Repository Pattern
+- Enter Customer Name
+- Enter Email
+- Click **Add Row** to insert detail lines dynamically
 
-Soft Delete Strategy
-
-Swagger for API documentation
-
-Frontend Architecture
-
-Angular application structured with Clean Architecture approach:
-
-Core
-
-Domain
-
-Infrastructure
-
-Presentation
-
-Facade Pattern for State Handling
-
-Uses:
-
-Signals / Reactive forms
-
-AG Grid for dynamic grid
-
-Service layer abstraction
-
-Proper separation of concerns
-
-🖥 Application Features
-1️⃣ Customer Entry Screen
-
-Users can:
-
-Enter Customer Name
-
-Enter Email
-
-Click Add Row to add detail lines
-
-📷 Add Screenshot Here
-
+```
+📷 Add screenshot here:
 ![Customer Entry](images/customer-entry.png)
-2️⃣ Add Multiple Detail Lines
+```
+
+---
+
+## 2️⃣ Add Multiple Detail Lines
 
 Each customer can have multiple details.
 
-Details contain:
+Detail fields:
 
-Code
+- Code
+- Category (Hardware / Software)
+- Description
 
-Category (Hardware / Software)
+Rows are dynamically added using AG Grid.
 
-Description
-
-When clicking Add Row, a new row is dynamically added to AG Grid.
-
-📷 Add Screenshot Here
-
+```
+📷 Add screenshot here:
 ![Add Row](images/add-row.png)
-3️⃣ Category-Based Code Logic
+```
 
-If category = Hardware, code must start with HW-
+---
 
-If category = Software, code must start with SW-
+## 3️⃣ Category-Based Code Logic
 
-User enters only numbers after prefix.
+Automatic prefix generation based on category:
 
-Prefix is automatically handled.
+| Category  | Code Format |
+|-----------|------------|
+| Hardware  | HW-1001    |
+| Software  | SW-2001    |
 
-Example:
+Rules:
 
-HW-1001
-SW-2001
-4️⃣ Category Filtering
+- Hardware → Code must start with `HW-`
+- Software → Code must start with `SW-`
+- User can enter numbers only after prefix
+- Prefix is auto-maintained
 
-When clicking:
+---
 
-Hardware → Grid loads only Hardware records
+## 4️⃣ Category Filtering
 
-Software → Grid loads only Software records
+- Clicking **Hardware** loads only hardware records
+- Clicking **Software** loads only software records
+- Grid refreshes dynamically from API
 
-Data loads dynamically from API.
-
-📷 Add Screenshot Here
-
+```
+📷 Add screenshot here:
 ![Category Filter](images/category-filter.png)
-5️⃣ Soft Delete
+```
 
-Customers are NOT permanently deleted.
+---
 
-A IsDeleted flag is used.
+## 5️⃣ Soft Delete Implementation
 
-Records are excluded from normal queries.
+- Customers are not permanently deleted
+- Uses `IsDeleted` flag in database
+- Excluded from normal queries
+- Maintains data integrity and audit capability
 
-Can be restored if needed.
+---
 
-6️⃣ Delete Detail Line
+## 6️⃣ Delete Detail Line
 
-Individual detail rows can be deleted.
+- Individual detail rows can be removed
+- Entire customer can be deleted (Soft Delete)
 
-Entire customer can also be deleted.
+---
 
-7️⃣ Print Feature
+## 7️⃣ Print Feature
 
-Clicking Print opens a formatted print window.
+- Click **Print**
+- Opens formatted print preview
+- Customer details are printable
 
-Customer details are rendered in printable format.
-
-📷 Add Screenshot Here
-
+```
+📷 Add screenshot here:
 ![Print](images/print.png)
-🔧 Installation Guide (For Git Repository)
-📥 Clone Repository
+```
+
+---
+
+# 🔧 Installation Guide
+
+---
+
+# 📥 Clone the Repository
+
+```bash
 git clone https://github.com/your-username/customerapp.git
 cd customerapp
-🟢 Frontend Setup (Angular)
-Navigate to Frontend Folder
+```
+
+---
+
+# 🟢 Frontend Setup (Angular)
+
+### Step 1: Navigate to Frontend Folder
+
+```bash
 cd customer-app/frontend/angular-customer-app
-Install Dependencies
+```
+
+### Step 2: Install Dependencies
+
+```bash
 npm install
-Build Application
+```
+
+### Step 3: Build Application
+
+```bash
 npm run build
-Serve Application
+```
+
+### Step 4: Run Application
+
+```bash
 npm start
-⚠ Configure API URL
+```
+
+---
+
+### ⚠ Configure API URL
 
 Navigate to:
 
+```
 domain/infrastructure/
-
-Update baseURL with your API address.
-
-⚠ In production, this should be moved to environment.ts.
-
-🔵 Backend Setup (.NET Core)
-Navigate to Backend Folder
-backend/CustomerApp.Api/CustomerApp.Api
-Step 1: Setup Database
-
-Open Script folder
-
-Execute SQL scripts in:
-
-🛠 SQL Server Management Studio (SSMS)
-
-Step 2: Update Connection String
-
-Open:
-
-appsettings.json
+```
 
 Update:
 
-"ConnectionStrings": {
-  "DefaultConnection": "your_connection_string_here"
-}
-Step 3: Configure CORS
+```ts
+baseURL = "https://localhost:xxxx/api"
+```
+
+⚠ Note: In production, move API URL to `environment.ts`.
+
+---
+
+# 🔵 Backend Setup (.NET Core)
+
+### Step 1: Navigate to Backend
+
+```
+backend/CustomerApp.Api/CustomerApp.Api
+```
+
+---
+
+### Step 2: Setup Database
+
+1. Open **Script** folder
+2. Execute SQL scripts using:
+   - SQL Server Management Studio (SSMS)
+
+---
+
+### Step 3: Update Connection String
 
 Open:
 
+```
+appsettings.json
+```
+
+Update:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "your_connection_string_here"
+}
+```
+
+---
+
+### Step 4: Configure CORS
+
+Open:
+
+```
 Program.cs
+```
 
-Add Angular URL in CORS policy:
+Add Angular URL:
 
+```csharp
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular",
@@ -226,33 +279,42 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
-Step 4: Build & Run
+```
+
+---
+
+### Step 5: Build & Run Backend
+
+```bash
 dotnet build
 dotnet run
+```
 
-You will see:
+You should see Swagger:
 
+```
 https://localhost:xxxx/swagger
+```
 
-Open Swagger to verify API.
+---
 
-✅ If Everything Is Configured Correctly
+# ✅ Expected Result
 
-Backend runs successfully
+If configuration is correct:
 
-Swagger is visible
+- Backend runs successfully
+- Swagger UI loads
+- Angular app loads
+- Customer entry screen appears
+- Add Row works
+- Category filter works
+- Print works
 
-Angular app loads
+---
 
-Customer entry screen is displayed
+# 📂 Recommended Project Structure
 
-Add Row works
-
-Category filter works
-
-Print works
-
-📂 Suggested Git Structure
+```
 customerapp/
 │
 ├── backend/
@@ -264,45 +326,49 @@ customerapp/
 ├── frontend/
 │   └── angular-customer-app/
 │
+├── images/
+│   ├── customer-entry.png
+│   ├── add-row.png
+│   ├── category-filter.png
+│   └── print.png
+│
 └── README.md
-📸 How To Add Images In Git
+```
 
-Create folder inside root:
+---
 
-images/
+# 📸 Adding Screenshots
 
-Add screenshots:
+1. Create an `images` folder in project root.
+2. Add your screenshots inside it.
+3. Reference them in README:
 
-images/customer-entry.png
-images/add-row.png
-images/category-filter.png
-images/print.png
-
-Reference inside README:
-
+```markdown
 ![Customer Entry](images/customer-entry.png)
-🧠 Technical Highlights
+```
 
-Clean Architecture Implementation
+---
 
-CQRS Pattern
+# 🧠 Technical Highlights
 
-Repository Pattern
+- Clean Architecture (Frontend & Backend)
+- CQRS Implementation
+- Repository Pattern
+- Soft Delete Strategy
+- Dynamic Grid Management
+- Category-Based Business Logic
+- Print Preview Feature
+- Swagger Integration
+- CORS Configuration
 
-Soft Delete
+---
 
-AG Grid Integration
-
-Dynamic Row Management
-
-Category-based Code Generation
-
-Print Preview Feature
-
-Proper CORS Configuration
-
-Swagger API Documentation
-
-👨‍💻 Author
+# 👨‍💻 Author
 
 Murali P
+
+---
+
+# 📄 License
+
+This project is for learning and demonstration purposes.
