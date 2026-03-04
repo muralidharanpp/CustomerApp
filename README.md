@@ -71,6 +71,8 @@ Technologies Used:
 
 ---
 
+## 1️⃣ Check the screenshot under Videos & Screenshotsn
+
 ## 1️⃣ Customer Entry Screen
 
 - Enter Customer Name
@@ -81,7 +83,6 @@ Technologies Used:
 📷 Add screenshot here:
 ![Customer Entry](https://github.com/muralidharanpp/CustomerApp/blob/main/Videos%20%26%20Screenshots/angular-1.png)
 ```
-
 ---
 
 ## 2️⃣ Add Multiple Detail Lines
