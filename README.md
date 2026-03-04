@@ -79,7 +79,7 @@ Technologies Used:
 
 ```
 📷 Add screenshot here:
-![Customer Entry](images/customer-entry.png)
+![Customer Entry](https://github.com/muralidharanpp/CustomerApp/blob/main/Videos%20%26%20Screenshots/angular-1.png)
 ```
 
 ---
