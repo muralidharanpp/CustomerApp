@@ -1,0 +1,20 @@
+.invalid-cell {
+  background-color: #ffcccc; /* light red */
+  border: 1px solid red;
+}
+
+/* Pagination Footer */
+.ag-theme-alpine .ag-paging-panel {
+    height: 60px;
+    line-height: 60px;
+    font-size: 1rem;
+    padding: 0 15px;
+}
+
+/* Buttons inside Pagination */
+.ag-theme-alpine .ag-paging-button {
+    min-height: 40px;
+    min-width: 40px;
+    font-size: 1rem;
+    margin: 0 2px;
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css"; */
+@use "bootstrap/scss/bootstrap" as *;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snackbar-success {
+  background-color: #4caf50; /* green */
+  color: white;
+  font-weight: 500;
+}
+
+.snackbar-error {
+  background-color: #f44336; /* red */
+  color: white;
+  font-weight: 500;
+}
+
+/* Targets the snack-bar container correctly */
+.snackbar-success.mat-snack-bar-container {
+  background-color: #4caf50 !important; /* green */
+  color: white !important;
+  font-weight: 500;
+}
+
+.snackbar-error.mat-snack-bar-container {
+  background-color: #f44336 !important; /* red */
+  color: white !important;
+  font-weight: 500;
+}

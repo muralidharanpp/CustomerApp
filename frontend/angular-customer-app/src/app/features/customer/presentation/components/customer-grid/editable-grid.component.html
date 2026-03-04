@@ -1,0 +1,26 @@
+
+<div class="card">
+  <div class="card-header bg-primary d-flex justify-content-between align-items-center text-white">
+    Customer Details
+    <button class="btn btn-success btn-sm" (click)="addDetailClicked()">Add Detail Row</button>
+    <button class="btn btn-danger btn-sm ms-2" (click)="deleteDetailClicked()">Delete Detail Row</button>
+  </div>
+
+  <div class="card-body p-0">
+    <ag-grid-angular
+      #agGrid
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowSelection]="'single'"
+      (gridReady)="onGridReady($event)"
+      [rowHeight]="40"
+      [headerHeight]="40"
+      [pagination]="false"          
+      [paginationPageSize]="10"
+    >
+    </ag-grid-angular>
+  </div>
+</div>
